@@ -8,7 +8,8 @@ Collider.prototype.initialize = function () {
 Collider.prototype.onCollisionStart = function (result) {
   if (result.other.rigidbody) {
     if (result.other.name === "Box") {
-      window.postMessage({ type: "boxHit", message: "box is hit" });
+      this.app.fire("boxHit", { message: "box is hit" });
+      // window.postMessage({ type: "boxHit", message: "box is hit" });
     }
   }
 };
